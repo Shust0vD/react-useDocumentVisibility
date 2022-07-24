@@ -15,9 +15,16 @@ export default function useDocumentVisibility() {
         }
     }, []);
 
-    const onVisibilityChange = (callback) => {
-        callback(visible);
-    };
+    const onVisibilityChange = useCallback((callback) => {
+        const sub = () => {
+            callback(document.visibilityState === 'visible');
+        };
+        document.addEventListener("visibilitychange", sub);
+        return () => {
+            document.removeEventListener("visibilitychange", sub);
+        };
+    }, []);
+
 
     useEffect(() => {
         document.addEventListener("visibilitychange", checkVisible);
