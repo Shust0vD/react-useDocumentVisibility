@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 export default function useDocumentVisibility() {
     const [count, setCount] = useState(0);
-    const [visible, setvisible] = useState(true);
+    const [visible, setvisible] = useState(document.visibilityState === 'visible');
 
     const checkVisible = useCallback(() => {
         if (document.visibilityState === 'visible') {
