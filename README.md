@@ -8,29 +8,29 @@ React hook, which
 ## Example
 
 ```jsx
-import React from 'react'
-import useDocumentVisibility from '@100rub/use-document-visibility'
+import React from "react";
+import useDocumentVisibility from "@100rub/use-document-visibility";
 
 const LeaveTabCounter = () => {
-    const { count, visible, onVisibilityChange } = useDocumentVisibility();
+  const { count, visible, onVisibilityChange } = useDocumentVisibility();
 
-    useEffect(() => {
-        onVisibilityChange((isVisible) => {
-            console.log('first handler', isVisible)
-        });
-        onVisibilityChange((isVisible) => {
-            console.log('second handler', isVisible)
-        });
-    }, [onVisibilityChange])
+  useEffect(() => {
+    onVisibilityChange((isVisible) => {
+      console.log("first handler", isVisible);
+    });
+    onVisibilityChange((isVisible) => {
+      console.log("second handler", isVisible);
+    });
+  }, [onVisibilityChange]);
 
-    return (
-        <div>
-            <span>
-                You have left the page: {count} times
-                Is the tab active? {visible ? 'yes' : 'no'}
-            </span>
-        </div>
-    );
+  return (
+    <div>
+      <span>
+        You have left the page: {count} times Is the tab active?{" "}
+        {visible ? "yes" : "no"}
+      </span>
+    </div>
+  );
 };
 ```
 

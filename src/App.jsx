@@ -1,5 +1,4 @@
-import LeaveTabCounter from "./component/LeaveTabCounter";
-
+import LeaveTabCounter from './component/LeaveTabCounter';
 
 function App() {
   return (
