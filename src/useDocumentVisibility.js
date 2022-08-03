@@ -29,7 +29,6 @@ export default function useDocumentVisibility() {
     document.addEventListener('visibilitychange', checkVisible);
     return () => {
       document.removeEventListener('visibilitychange', checkVisible);
-      events.current = [];
     };
   }, [checkVisible]);
 
