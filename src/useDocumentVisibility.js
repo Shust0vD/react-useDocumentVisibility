@@ -1,8 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+const checkWindow = () => {
+  if (typeof document === 'undefined') return true;
+  else return document.visibilityState === 'visible';
+};
+
 export default function useDocumentVisibility() {
   const [count, setCount] = useState(0);
-  const [visible, setvisible] = useState(document.visibilityState === 'visible');
+  const [visible, setvisible] = useState(checkWindow());
 
   const events = useRef([]);
 
